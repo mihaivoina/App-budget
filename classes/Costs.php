@@ -14,6 +14,9 @@ class Cost {
     {
         $costs_user = [];
 
+        $date = strval(date('m'));
+        $edit_LIKE = "%-".$date."-%";
+
         $sql = "
             SELECT  `costs`.`id`, 
                     `costs`.`description`, 
@@ -22,7 +25,7 @@ class Cost {
                     `users`.`first_name` AS user_first_name,
                     `users`.`last_name` AS user_last_name
             FROM `costs`, `users`
-            WHERE `costs`.`users_id`=`users`.`id`;";
+            WHERE `costs`.`created_at` LIKE '$edit_LIKE' ;";
 
         $list = Database::connect()->select($sql);
 

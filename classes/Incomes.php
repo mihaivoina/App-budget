@@ -16,8 +16,8 @@ class Income {
         $incomes_user = [];
 
         $date = strval(date('m'));
-
-
+        $edit_LIKE = "%-".$date."-%";
+    
         $sql = "
             SELECT  `incomes`.`id`, 
                     `incomes`.`description`, 
@@ -26,7 +26,8 @@ class Income {
                     `users`.`first_name` AS user_first_name,
                     `users`.`last_name` AS user_last_name
             FROM `incomes`, `users`
-            WHERE `incomes`.`users_id`=`users`.`id`;";
+            WHERE `incomes`.`created_at` LIKE '$edit_LIKE' ;";
+
 
         $list = Database::connect()->select($sql);
 

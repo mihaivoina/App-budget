@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2020 at 06:45 PM
+-- Generation Time: Feb 17, 2020 at 10:59 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -43,7 +43,8 @@ CREATE TABLE `costs` (
 INSERT INTO `costs` (`id`, `users_id`, `description`, `value`, `created_at`) VALUES
 (1, 1, 'Chirie', 1200, '2020-02-11 07:49:58'),
 (2, 1, 'Intretinere', 600, '2020-02-11 07:49:58'),
-(5, 1, 'Achizitie televizor', 1000, '2020-02-11 13:11:10');
+(5, 1, 'Achizitie televizor', 1000, '2020-02-11 13:11:10'),
+(10, 1, 'Taxa afterschool', 1200, '2020-02-13 13:12:09');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,7 @@ CREATE TABLE `incomes` (
 
 INSERT INTO `incomes` (`id`, `users_id`, `description`, `value`, `created_at`) VALUES
 (1, 1, 'Salariu', 5000, '2020-02-11 07:24:35'),
-(5, 1, 'Vanzare canapea', 200, '2020-03-11 13:10:41');
+(5, 1, 'Vanzare canapea', 200, '2020-02-11 13:10:41');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,7 @@ CREATE TABLE `users` (
   `first_name` char(20) NOT NULL DEFAULT '''''',
   `last_name` char(20) NOT NULL DEFAULT '''''',
   `password` char(32) CHARACTER SET utf32 NOT NULL DEFAULT '''''',
-  `adress` char(20) NOT NULL DEFAULT '''''',
+  `adress` char(30) NOT NULL DEFAULT '''''',
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -120,7 +121,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `costs`
 --
 ALTER TABLE `costs`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `incomes`

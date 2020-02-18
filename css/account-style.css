@@ -5,6 +5,12 @@
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.login-body{
+  background-image: url('./storage/background.png');
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+}
 .login-page {
   width: 360px;
   padding: 8% 0 0;

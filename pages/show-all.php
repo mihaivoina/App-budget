@@ -108,4 +108,4 @@
 </div>
 
 <!-- LINK LOGOUT -->
-<a href="" class="logout" title="Logout"><i class="ion-ios-close-outline"></i></a>
+<a href="./index.php?page=signing-off" class="logout" title="Logout"><i class="ion-ios-close-outline"></i></a>
