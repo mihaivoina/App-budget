@@ -25,6 +25,7 @@ class User {
         $list = Database::connect()->select($sql);
 
         if($list === false){
+            $users = false;
             return $users;
         }
 
@@ -41,9 +42,31 @@ class User {
 
     }
 
+    public static function check($email_post){
+        $sql = "SELECT `email`
+                    FROM `users`
+                    WHERE `email` = '".$email_post."';";
+
+        $list = Database::connect()->select($sql);
+
+        if($list === false ){
+            $user = new User;
+    
+            $user->email = $email_post;
+           
+            return $user;
+        }
+        $user = false;
+        return $user;
+    }
+
+    public function save(){
+        $sql = "INSERT INTO `users` (`email`, `first_name`, `last_name`, `password`, `adress`) 
+            VALUES ('".$this->email."', '".$this->first_name."', '".$this->last_name."', '".$this->password."', '".$this->adress."');";
+
+        Database::connect()->insert($sql);
+    }
+
 }
-
-
-
 
 ?>

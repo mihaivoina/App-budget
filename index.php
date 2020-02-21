@@ -1,5 +1,4 @@
 <?php 
-
     session_start();
 
     include './classes/Database.php';
@@ -7,8 +6,6 @@
     include './classes/Costs.php';
     include './classes/Users.php';
     include './scripts/functions.php';
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -20,14 +17,9 @@
         <link type="text/css" rel="stylesheet" href="css/index-style.css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
         <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-
     </head>
     <body>
-
         <?php
-
-            // $isconnected = false;
-            // isConnected()
 
             if(isConnected()){
 
@@ -65,11 +57,7 @@
                         include './pages/login-form.php';
                         break;
                 }
-
             }
-
-
         ?>
-
     </body>
 </html>

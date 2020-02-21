@@ -18,23 +18,30 @@
         </style>
     </head>
     <body>    
+        <?php
+            if(isConnected() == false){ 
+                require 'scripts/store-acc.php';
+        ?>
+
         <div class="login-body">
             <div class="login-page">
                 <div class="form">
 
                     <!-- CREARE CONT -->
 
-                    <form class="register-form">
-                        <input type="text" placeholder="nume">
-                        <input type="text" placeholder="prenume">
-                        <input type="text" placeholder="adresa">
-                        <input type="email" placeholder="email">
-                        <input type="password" placeholder="parola">
-                        <button type="submit">creaza cont</button>
+                    <form class="register-form" action="" method="POST">
+                        <input type="text" placeholder="nume" name="first_name" required>
+                        <input type="text" placeholder="prenume" name="last_name" required>
+                        <input type="text" placeholder="adresa" name="adress" required>
+                        <input type="email" placeholder="email" name="email" required>
+                        <input type="password" placeholder="parola" name="password" required>
+                        <button type="submit" name="register">creaza cont</button>
                         <p class="message">Ai deja un cont? <a href="./index.php?page=login">Login</a></p>
                     </form>
+                    <?php echo $eroare; ?>
                 </div>
             </div>
         </div>
+        <?php } ?>
     </body> 
 </html>

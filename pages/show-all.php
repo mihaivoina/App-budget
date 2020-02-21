@@ -4,7 +4,11 @@
     $total_incomes = Income::sum();
     $total_costs = Cost::sum();
     $budget = $total_incomes - $total_costs;
-    $percentage = round($total_costs / $total_incomes * 100);
+    if($total_incomes !== 0){
+        $percentage = round($total_costs / $total_incomes * 100);
+    }else{
+        $percentage = 0;
+    }
 ?>
 
 <div class="top">
@@ -40,6 +44,7 @@
             </div>
         </div>
     </div>
+    <div class="show-user"><?php echo $_SESSION['first_name'] ?></div>
 </div>
         
 <div class="bottom">
@@ -58,7 +63,7 @@
             </form>
         </div>
     </div>
-
+    
     <div class="container clearfix">
 
         <!-- LISTA VENITURI -->
@@ -66,7 +71,12 @@
             <h2 class="icome__title">Venituri</h2>
             
             <div class="income__list">
-                <?php foreach($incomes_user as $income_user){ ?>
+                <?php 
+                    if(empty($incomes_user)){ ?>
+                        <div >Introduceti veniturile pentru luna curenta.</div>
+                    <?php } 
+                        foreach($incomes_user as $income_user){ 
+                    ?>
                 <div class="item clearfix" id="income-0">
                     <div class="item__description"><?php echo $income_user->description; ?></div>
                     <div class="right clearfix">
@@ -76,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php }  ?>
             </div>                    
         </div>
         
@@ -85,9 +95,17 @@
             <h2 class="expenses__title">Cheltuieli</h2>
             
             <div class="expenses__list">
-                <?php $qty = 0; ?>
-                <?php foreach($costs_user as $cost_user){
-                    $cost_percentage = round($cost_user->value / $total_incomes * 100);
+                <?php //$qty = 0; ?>
+                <?php 
+                    if(empty($costs_user)){ ?>
+                        <div >Introduceti cheltuielile pentru luna curenta.</div>
+                    <?php } 
+                    foreach($costs_user as $cost_user){
+                        if($total_incomes !== 0){
+                            $cost_percentage = round($cost_user->value / $total_incomes * 100);
+                        }else {
+                            $cost_percentage = 0;
+                        }
                 ?>
                 <div class="item clearfix" id="expense-0">
                     <div class="item__description"><?php echo $cost_user->description; ?></div>

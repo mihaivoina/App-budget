@@ -6,7 +6,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-body{
-  background-image: url('./storage/background.png');
+  /* background-image: url('./storage/background.png'); */
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
@@ -98,4 +98,10 @@
 }
 .container .info span .fa {
   color: #EF3B3A;
+}
+.eroare{
+	font-family:calibri;
+	font-size:20px;
+	color:red;
+	margin-bottom:5px;
 }

@@ -16,6 +16,7 @@ class Cost {
 
         $date = strval(date('m'));
         $edit_LIKE = "%-".$date."-%";
+        $user_id_current = $_SESSION['id'];
 
         $sql = "
             SELECT  `costs`.`id`, 
@@ -25,7 +26,9 @@ class Cost {
                     `users`.`first_name` AS user_first_name,
                     `users`.`last_name` AS user_last_name
             FROM `costs`, `users`
-            WHERE `costs`.`created_at` LIKE '$edit_LIKE' ;";
+            WHERE `costs`.`created_at` LIKE '$edit_LIKE' AND 
+                `costs`.`users_id` = `users`.`id` AND 
+                `costs`.`users_id` = '".$user_id_current."' ;";
 
         $list = Database::connect()->select($sql);
 
@@ -51,7 +54,9 @@ class Cost {
 
     public function save()
     {
-        $sql = "INSERT INTO `costs` (`users_id`, `description`, `value`) VALUES ('1','". $this->description ."', '". $this->value ."');";
+        $user_id_current = $_SESSION['id'];
+
+        $sql = "INSERT INTO `costs` (`users_id`, `description`, `value`) VALUES ('".$user_id_current."','". $this->description ."', '". $this->value ."');";
 
         Database::connect()->insert($sql);
     }
@@ -62,10 +67,15 @@ class Cost {
     }
 
     public static function sum(){
+        $date = strval(date('m'));
+        $edit_LIKE = "%-".$date."-%";
+        $user_id_current = $_SESSION['id'];
 
         $sql = "SELECT `costs`.`value`
         FROM `costs`, `users`
-        WHERE `costs`.`users_id` = `users`.`id`;";
+        WHERE `costs`.`created_at` LIKE '$edit_LIKE' AND
+            `costs`.`users_id` = `users`.`id` AND
+            `costs`.`users_id` = ".$user_id_current.";";
 
        $list = Database::connect()->sum($sql);
 

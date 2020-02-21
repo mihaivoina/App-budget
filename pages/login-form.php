@@ -25,11 +25,11 @@
             <div class="login-body">
                 <div class="login-page">
                     <div class="form">
-
+                        <?php echo $eroare; ?>
                         <!-- LOGIN -->
                         <form class="login-form" action="" method="POST">
-                            <input type="email" placeholder="email" name="email">
-                            <input type="password" placeholder="parola" name="password">
+                            <input type="email" placeholder="email" name="email" required>
+                            <input type="password" placeholder="parola" name="password" required>
                             <button type="submit" name="login">login</button>
                             <p class="message">Nu ai cont? <a href="./index.php?page=create-acc">Creaza un cont</a></p>
                         </form>

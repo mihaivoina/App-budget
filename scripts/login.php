@@ -1,6 +1,7 @@
 <?php
 
 $success = [];
+$eroare = null;
 
 $email_post = null;
 $password_post = null;
@@ -18,9 +19,9 @@ if(isset($_POST['login'])){
 
         //se face select in daza de date acolo unde emailul utilizatorului si parola se potrivesc cu ce s-a retinut din formulare
     
-        $user = User::all($email_post, $password_post);
+        $user = User::All($email_post, $password_post);
 
-        if($user){
+        if($user !== false){
             
             //se creaza variabilele de sesiune
 
@@ -31,14 +32,11 @@ if(isset($_POST['login'])){
             $_SESSION['password'] = $user->password;
             $_SESSION['adress'] = $user->adress;
 
-
-
                 header('location: index.php');
-
 
         } 
         else{
-            echo 'Acest utilizator nu exista in baza de date, mai incearca o data.';
+            $eroare = '<div class="eroare">Acest utilizator nu exista in baza de date, mai incearca o data.</div>';
         }
     
     }

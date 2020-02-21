@@ -1,0 +1,5 @@
+-aplicatia poate fii utilizata de mai multi useri, fiecare cu datele lui;
+-opereaza in baza de data (venituri/cheltuieli/totaluri) pentru luna curenta;
+-trateaza situatia in care nu sunt venituri/chieltuieli introduse;
+-trateaza situatia cand total venituri sunt zero, pentru a nu returna eroare in calculul procentului;
+-nu am folosit criptarea parolelor pentru a permite verificarea celor mai sus mentionate cu ajutorul conturilor deja create.

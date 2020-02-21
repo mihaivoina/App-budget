@@ -28,4 +28,5 @@ function validateUserInput(){
     GLOBAL $success;
 
     array_push($success, false);
+    
 }

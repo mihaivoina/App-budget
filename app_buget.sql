@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2020 at 10:59 AM
+-- Generation Time: Feb 21, 2020 at 06:14 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -44,7 +44,10 @@ INSERT INTO `costs` (`id`, `users_id`, `description`, `value`, `created_at`) VAL
 (1, 1, 'Chirie', 1200, '2020-02-11 07:49:58'),
 (2, 1, 'Intretinere', 600, '2020-02-11 07:49:58'),
 (5, 1, 'Achizitie televizor', 1000, '2020-02-11 13:11:10'),
-(10, 1, 'Taxa afterschool', 1200, '2020-02-13 13:12:09');
+(10, 1, 'Taxa afterschool', 1200, '2020-02-13 13:12:09'),
+(13, 3, 'Factura gaz', 100, '2020-02-20 13:47:57'),
+(16, 5, 'Intretinere', 300, '2020-02-21 07:37:01'),
+(17, 15, 'Fizioterapie', 420, '2020-01-21 13:31:46');
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,10 @@ CREATE TABLE `incomes` (
 
 INSERT INTO `incomes` (`id`, `users_id`, `description`, `value`, `created_at`) VALUES
 (1, 1, 'Salariu', 5000, '2020-02-11 07:24:35'),
-(5, 1, 'Vanzare canapea', 200, '2020-02-11 13:10:41');
+(5, 1, 'Vanzare canapea', 200, '2020-02-11 13:10:41'),
+(9, 3, 'Spor de stres', 500, '2020-02-20 14:58:16'),
+(12, 15, 'Pensie', 1600, '2020-02-21 13:31:13'),
+(13, 1, 'Vanzare bicicleta', 250, '2020-02-21 16:58:47');
 
 -- --------------------------------------------------------
 
@@ -89,7 +95,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `first_name`, `last_name`, `password`, `adress`, `created_at`) VALUES
-(1, 'mihai@gmail.com', 'Mihai', 'Voina', '123456', 'Brasov', '2020-02-11 12:55:57');
+(1, 'mihai@gmail.com', 'Mihai', 'Voina', '123456', 'Brasov', '2020-02-11 12:55:57'),
+(3, 'bianca@gmail.com', 'Bianca', 'Voina', '123456', 'Brasov', '2020-02-20 12:47:01'),
+(5, 'claudiu@gmail.com', 'Claudiu', 'Stan', 'ccc', 'Brasov', '2020-02-20 16:19:51'),
+(15, 'elena@gmail.com', 'Elena', 'Voina', 'eee', 'Brasov', '2020-02-21 14:14:14');
 
 --
 -- Indexes for dumped tables
@@ -121,19 +130,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `costs`
 --
 ALTER TABLE `costs`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `incomes`
 --
 ALTER TABLE `incomes`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
